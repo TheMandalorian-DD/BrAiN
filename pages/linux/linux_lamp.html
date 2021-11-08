@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image:x-icon" href="../../images/logo.ico" />
+	<title>BrAiN</title>
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+	<object id="object" type="text/html" data="../header.html" ></object>
+	<object id="object2" type="text/html" data="linux_header.html" ></object>
+
+	<div id="theprinbody" class="container">
+		<h5 align=center>Installation et configuration d'une plate-forme LAMP</h5><br>
+		<table class="table table-bordered">
+		<h5>1</h5>
+		  <tbody>
+			<tr>
+			   <th scope="row">sudo apt update</th>
+			   <td>Afin de prendre en compte toutes les modifications éventuelles</td>
+			</tr>
+			<tr>
+			   <th scope="row">sudo apt-get upgrade && apt-get dist-upgrade -y</th>
+			   <td>Mettre à jour la distribution</td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		
+		<table class="table table-bordered">
+		<h5>2. Apache2</h5>
+		  <tbody>
+			<tr>
+			   <th scope="row">sudo apt install apache2</th>
+			   <td>Installation du paquet apache2 (Répondez favorablement si le système vous sollicite).
+			   <br>Si tout a bien marché nous aurons des informations sur apach2 en tapant notre ip dans le navigateur !</td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		
+		<table class="table table-bordered">
+		<h5>3. Mysql</h5>
+		  <tbody>
+			<tr>
+			   <th scope="row">sudo apt install mariadb-server</th>
+			   <td>Installation du paquet mariadb-server (Répondez favorablement si le système vous sollicite.).</td>
+			</tr>
+			<tr>
+			   <th scope="row">mysql_secure_installation</th>
+			   <td>Pour sécurisé le serveur mysql
+			   <br>Il vous sera proposé de :<br>
+			   <strong>• Enter current password for root (enter for none):</strong> Aucun mot de passe pour le moment.<br>
+			   <strong>• Change the root password ?</strong> Modifiez le mot de passe de l'administrateur. Vous indiquerez votre mot de passe.<br>
+			   <strong>• Remove anonymous users ?</strong> Supprimez les utilisateurs anonymes (Y).<br>
+			   <strong>• Disallow root login remotely ?</strong> Interdisez les connexions distantes de l'administrateur (Y).<br>
+			   <strong>• Remove test database and access to it ?</strong> Supprimez la base de test et les droits associés (Y).<br>
+			   <strong>• Reload privilege tables now ?</strong> rechargez les privilèges pour prise en compte immédiate (Y).</td>
+			</tr>
+			<tr>
+			   <th scope="row">mysql -u root -p</th>
+			   <td>On se connecte à mariadb, peu importe le mot de passe tapé, il peut être vide pour l'instant.</td>
+			</tr>
+			<tr>
+			   <th scope="row">use mysql;</th>
+			   <td> On se connecte à la base de données de gestion de mariadb : mysql.</td>
+			</tr>
+			<tr>
+			   <th scope="row">update user set plugin='' where user='root';</th>
+			   <td>On supprime l'utilisation du plugin.</td>
+			</tr>
+			<tr>
+			   <th scope="row">flush privileges;</th>
+			   <td>On valide les changements.</td>
+			</tr>
+			<tr>
+			   <th scope="row">exit;</th>
+			   <td>On quitte mariadb-server.</td>
+			</tr>
+		  </tbody>
+		</table><br>
+		
+		<table class="table table-bordered">
+		<h5>4. Php</h5>
+		  <tbody>
+			<tr>
+			   <th scope="row">sudo apt install apache2</th>
+			   <td>Installation du paquet apache2 (Répondez favorablement si le système vous sollicite).
+			   <br>Si tout a bien marché nous aurons des informations sur apach2 en tapant notre ip dans le navigateur !</td>
+			</tr>
+			<tr>
+			   <th scope="row">php -v</th>
+			   <td>Vérifier la version installée de php .</td>
+			</tr>
+		</table>
+		<table  class="table table-bordered">
+		 <tbody>
+			<tr>
+			   <td>Pour installer la dernière version de php sur deepin linux :
+			   <br><strong>sudo apt update</strong>
+			   <br><strong>sudo apt install ca-certificates apt-transport-https</strong>
+			   <br><strong>wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -</strong>
+			   <br><strong>echo "deb https://packages.sury.org/php/ stretch main" | sudo tee /etc/apt/sources.list.d/php.list</strong>
+			   <br><strong>sudo apt update</strong>
+			   <br><strong>sudo apt full-upgrade</strong></td>
+			</tr>
+		  </tbody>
+		</table>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <td>Paquets à installer :<br>
+			   <strong>sudo apt install php7.4</strong><br>
+			   <strong>sudo apt install php7.4-curl</strong><br>
+			   <strong>sudo apt install php7.4-intl</strong><br>
+			   <strong>sudo apt install php7.4-opcache</strong><br>
+			   <strong>sudo apt install php7.4-zip</strong><br>
+			   <strong>sudo apt install libapache2-mod-php7.4</strong><br>
+			   <strong>sudo apt install php7.4-json</strong><br>
+			   <strong>sudo apt install php7.4-sqlite3</strong><br>
+			   <strong>sudo apt install php7.4-mbstring</strong><br>
+			   <strong>sudo apt install php7.4-common</strong><br>
+			   <strong>sudo apt install php7.4-mysql</strong><br>
+			   <strong>sudo apt install php7.4-gd</strong><br>
+			   <strong>sudo apt install php7.4-gmp</strong><br>
+			   <strong>sudo apt install php7.4-xml</strong>
+			   </td>
+			</tr>
+		</table>
+		<br>
+		
+		<table class="table table-bordered">
+		<h5>5. PhpMyadmin</h5>
+		  <tbody>
+			<tr>
+			   <th scope="row">cd /tmp</th>
+			   <td>Rentrer dans le répertoire /tmp</td>
+			</tr>
+			<tr>
+			   <th scope="row">wget https://files.phpmyadmin.net/phpMyAdmin/4.9.2/phpMyAdmin-4.9.2all-languages.tar.gz</th>
+			   <td>télécharger l'archive phpmyadmin, vous pouvez aller sur <a href="https://www.phpmyadmin.net/">phpmyadmin.net</a> pour télécharger la dernière version de phpmyadmin</td>
+			</tr>
+			<tr>
+			   <th scope="row">sha256sum phpMyAdmin-4.9.2-all-languages.tar.gz</th>
+			   <td>On vérifie, comme conseillé sur le site, l'empreinte numérique avec la commande sha256 (Vous devez obtenir la même valeur que celle indiquée sur le site).</td>
+			</tr>
+			<tr>
+			   <th scope="row">mv phpMyAdmin-4.9.2-all-languages/ /var/www/html/phpmyadmin</th>
+			   <td>On déplace et renomme le dossier créé dans le répertoire de publication du serveur web Apache.</td>
+			</tr>
+			<tr>
+			   <th scope="row">chown -R www-data:www-data /var/www/html/phpmyadmin</th>
+			   <td>On affecte comme propriétaire du dossier déplacé, le compte utilisateur www-data. Celui-ci est spécifique à l'utilisation du service Apache.</td>
+			</tr>
+			<tr>
+			   <th scope="row">systemctl restart apache2</th>
+			   <td>Redémarrons le service Apache.</td>
+			</tr>
+			<tr>
+			   <th scope="row">http://adresse_ip_de_la_vm/phpmyadmin/</th>
+			   <td>Vérifier que tout a fonctionné correctement, indiquez l'url suivante dans le navigateur.</td>
+			</tr>
+		</table>
+		<br>
+		<table class="table table-bordered">
+		<h5>6. Configuration d'apache</h5>
+		  <tbody>
+			<tr>
+			   <th scope="row">a2enmod userdir</th>
+			   <td>Permet à chaque utilisateur référencé sur le serveur web d'héberger un site web.</td>
+			</tr>
+			<tr>
+			   <th scope="row">a2enmod php7.4</th>
+			   <td>Activation du module php version...</td>
+			</tr>
+			<tr>
+			   <th scope="row">systemctl restart apache2</th>
+			   <td>Prendre en compte les changements en redémarrant le service Apache2.</td>
+			</tr>
+		</table>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <td><strong>• Permettre l'affichage des erreurs éventuelles. Par défaut, s'il y a des erreurs dans vos code sources PHP, elles ne seront pas affichées.</strong><br>
+			  <br>
+			  ◦ Commentez la ligne " php_admin_flag engine " du fichier (ligne 23 normalement): <strong>sudo nano /etc/apache2/mods-available/php7.3.conf</strong> => Mettre un # en début de ligne Sur un serveur en production, il ne faudrait pas effectuer cette modification.<br>
+			  <br>
+			  ◦ Editez le fichier <strong>sudo nano /etc/php/7.3/apache2/php.ini</strong> Cherchez la ligne qui commence par display_errors = Off (Ligne 474 normalement) => Mettre On à la place de Off
+			  <br><br>
+			  • Prenez en compte les changements en redémarrant le service Apache2 : <strong>systemctl restart apache2</strong>
+			  </td>
+			</tr>
+		</table>
+		<br>
+		
+		<table class="table table-bordered">
+		<h5>7. Test de fonctionnement d'Apache avec php (Ne soyez pas en mode administrateur).</h5>
+		  <tbody>
+			<tr>
+			   <td>• Ensuite, à la racine du répertoire personnel de l'utilisateur user  (/home/...), créez le répertoire public_html (exactement ce nom là): <strong>mkdir public_html</strong>
+				<br>
+			  <br>
+			  • Créez dans ce dossier le fichier <strong>« phpinfo.php »</strong> contenant la ligne :  <strong><²?php  phpinfo(); ?></strong><br>
+			  <br>
+			  • Avec votre navigateur tester l'installation avec l'url suivante : <strong>http://adresse_IP_de_la_VM/~monrépertoire/</strong><br>
+			  => sélectionner test.php (la config php est retournée).
+			  </td>
+			</tr>
+		</table>
+	</div>
+	
+
+	<script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+<body>
+
+</body>
+</html>

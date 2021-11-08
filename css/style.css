@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+h5{
+	font-size: 17px;
+}
+
+/*** index.html ***/
+
+#nav{
+	background-color: white;
+}
+
+#indextainer{
+	margin-top: 105px;
+	overflow-y: auto;
+}
+
+#pos{
+	margin: auto;
+}
+
+/*** header.html & all ***/
+
+#hedadiv{
+	overflow-x: auto;
+	padding-top: 20px;
+}
+
+#object{
+	background-color: white; 
+	width: 100%; 
+	height: 215px;
+}
+
+#object2{
+	background-color: white; 
+	margin-top: -10px;
+	width: 100%; 
+	height: 110px;
+}
+
+#lstbdy{
+	padding-top: 12px;
+}
+
+#navsec{
+	overflow-x: auto;
+	padding-top: 10px;
+}
+
+#theprinbody{
+	margin-top: 10px;
+	padding-bottom: 30px;
+}

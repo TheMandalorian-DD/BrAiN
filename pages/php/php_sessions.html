@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image:x-icon" href="../../images/logo.ico" />
+	<title>BrAiN</title>
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+	<object id="object" type="text/html" data="../header.html" ></object>
+	<object id="object2" type="text/html" data="php_header.html" ></object>
+
+	<div id="theprinbody" class="container">
+		<h5 class="text-center">Les Sessions</h5>
+		<br>
+	<table class="table table-bordered">
+	<h5>Une page de connexion</h5><p></p>
+		  <tbody>
+			<tr>
+<td>
+<pre>
+<span>&lt;html></span>
+	<span>// Ex : formulaire</span>
+	<span>&lt;form method="POST"></span>
+		<span>&lt;input type="text" name="nom"></span>
+		<span>&lt;input type="submit" name="submit"></span>
+	<span>&lt;/form></span>
+<span>&lt;html></span>	
+
+<span>&lt;?php</span>
+<span>// Les sessions permettres d'envoyer des données d'une page a une autre en sécurité.</span>
+
+<span>// Je sais que je vais utiliser des variables de session donc je démarre ma session</span>
+<span>session_start();</span>
+
+	<span>// Si la méthode dans le formulaire = POST (les données ne passe pas dans l'url)</span>
+	<span>// Si la méthode dans le formulaire = GET (les données passe dans l'url)</span>
+	
+	<span>// Donc method=post, name = nom</span>
+	
+	<span>// Si j'appuie sur le button submit...</span>
+	<span>if(isset($_POST['submit'])){</span>
+	
+		<span>// Je récupère dans la variable $nom les données du formulaire</span>
+		<span>/* la fonction trim permet de supprimer les caractères invisibles, </span>
+		<span>c'est-à-dire les caractères tels que l'espace, la tabulation, le retour à </span>
+		<span>la ligne ou bien même le retour chariot. */</span>
+		
+		<span>$nom = trim($_POST['nom'])</span>
+		
+		<span>//Je vérifie si l'utilisateur existe dans ma bdd avec une fonction </span>
+		
+		<span>// Si mon rowCount return true je récupère les infos qui m'interesse</span>
+		
+		<span>// Exemple l'id </span>
+			
+		<span>$userinfo = recupId($nom);</span>
+		
+		<span>// je crée une variable de session qui sera égale a l'id de l'utilisateur</span>
+
+		<span>$_SESSION['id'] = $userinfo['id'];</span>
+		
+		<span>// Je le redirige vers la page profil</span>
+	
+		<span>header("Location: profil.php");</span>
+		<span>exit;</span>
+	
+	<span>}</span>
+
+<span>?&gt;</span>
+</pre>	
+</td>  
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+			<table class="table table-bordered">
+	<h5>la page profil</h5><p></p>
+		  <tbody>
+			<tr>
+<td>
+<pre>
+<span>&lt;?php</span>
+<span>// Je sais que je vais utiliser des variables de session donc je démarre ma session</span>
+<span>// Cette fonction doit être placé avant tt code html et espace blanc avant le php.</span>
+
+<span>session_start();</span>
+
+<span>// J'inclus des fichiers si nécessaire...</span>
+	
+	<span>// Si la variable de sesion id existe :</span>
+	
+	<span>if(isset($_SESSION['id']))</span><span>// ou if(!empty($_SESSION['id']))</span>
+		<span>!empty = si le ce n'est pas vide</span>
+		
+		<span>/* On peut alors faire une fonction pour récupérer </span>
+		<span>Les infos de l'utilisateur possédant cet id */</span>
+
+	<span>}else{</span>
+		<span>header("Location: index.php");</span>
+	<span>}</span>
+
+<span>?></span>
+</pre>	
+</td>  
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+			<table class="table table-bordered">
+	<h5>Une page de deconnexion</h5><p></p>
+		  <tbody>
+			<tr>
+<td>
+<pre>
+<span>&lt;?php</span>
+	session_start(); //on dit qu'on veut utiliser les variables de sessions en démarrant la session
+	session_unset();	//On supprime les variables de sessions
+	session_destroy(); //On détruit la sessions
+	header("Location: index.php"); //On redirige l'utilisateur vers une autre page
+<span>?></span>
+</pre>	
+</td>  
+			</tr>
+		  </tbody>
+		</table>
+	</div>
+
+	<script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+<body>
+
+</body>
+</html>

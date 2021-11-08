@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image:x-icon" href="../../images/logo.ico" />
+	<title>BrAiN</title>
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+	<object id="object" type="text/html" data="../header.html" ></object>
+	<object id="object2" type="text/html" data="sql_header.html" ></object>
+	
+	<div id="theprinbody"class="container">
+	<h5 class="text-center">Ordre à respecter</h5>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <td>
+				<strong>SELECT</strong> nom de ce qu'on veut afficher
+				<br><strong>FROM</strong> nom de table 
+				<br><strong>WHERE</strong> critère de restriction 
+				<br><strong>AND / OR</strong> (Peut être répéter autant de fois que nécessaire)
+				<br><strong>GROUP BY</strong> ...regroupement
+				<br><strong>HAVING</strong> critère de restriction
+				<br><strong>ORDER BY</strong> nom du chanps sur lequel porte le trie ASC = Ascendants (A,B,C...) ou DESC = Descendants (Z,Y,X...).
+				</td>
+			</tr>
+		  </tbody>
+		</table>
+			<br>
+		<h5 class="text-center">Opérateurs disponibles : WHERE</h5>
+		<br>
+		<table class="table table-bordered">
+		  <thead class="text-center">
+			<th>Opérateurs</th>
+			<th>Effets</th>
+			<th>Exemples</th>
+		  </thead>
+		  <tbody class="text-center">
+			<tr>
+				<td><strong>=</strong></td>
+				<td>Égal</td>
+				<td>WHERE salaire = 2000</td>
+			</tr>
+			<tr>
+				<td><strong><</strong></td>
+				<td>Inférieur à</td>
+				<td>WHERE salaire < 2000</td>
+			</tr>
+			<tr>
+				<td><strong>></strong></td>
+				<td>Supérieur à</td>
+				<td>WHERE salaire > 2000</td>
+			</tr>
+			<tr>
+				<td><strong><=</strong></td>
+				<td>Inférieur ou égal à</td>
+				<td>WHERE salaire > 2000</td>
+			</tr>
+			<tr>
+				<td><strong>>=</strong></td>
+				<td>Supérieur ou égal à</td>
+				<td>WHERE salaire <= 2000</td>
+			</tr>
+			<tr>
+				<td><strong><></strong></td>
+				<td>Différent de</td>
+				<td>WHERE salaire <> 2000</td>
+			</tr>
+			<tr>
+				<td><strong>NOT NULL</strong></td>
+				<td>Non vide</td>
+				<td>WHERE salaire IS NOT NUL</td>
+			</tr>
+			<tr>
+				<td><strong>NULL</strong></td>
+				<td>Vide</td>
+				<td>WHERE salaire IS NULL</td>
+			</tr>
+			<tr>
+				<td><strong>LIKE</strong></td>
+				<td>Contient</td>
+				<td>Les prenoms qui commencent par la lettre -> L : WHERE prenom LIKE "L%"
+				<br>Les prenoms qui se terminent par -> ian : WHERE prenom LIKE "%ian"
+				<br>Les prenoms qui contienent les lettres -> rin : WHERE prenom LIKE "%rin%"
+				</td>
+			</tr>
+			<tr>
+				<td><strong>IN</strong></td>
+				<td>Choix parmi les valeurs</strong></td>
+				<td>WHERE prenom IN("Ursule", "Jules", "toto")</td>
+			</tr>
+			<tr>
+				<td><strong>></strong></td>
+				<td>Tous sauf</td>
+				<td>WHERE prenom NOT IN("Ursule", "Jules", "toto")</td>
+			</tr>
+			<tr>
+				<td><strong>BETWEEN</strong></td>
+				<td>Entre</td>
+				<td>WHERE BETWEEN '2000-01-01' AND '2010-12-31'</td>
+			</tr>
+			</tbody>
+		</table>
+			<br>
+		<h5 class="text-center">Fonctions</h5>
+		<br>
+		<table class="table table-bordered">
+		<thead class="text-center">
+			<th>Fonctions</th>
+			<th>Effets</th>
+			<th>Exemples</th>
+		  </thead>
+		  <tbody>
+			<tr>
+			   <td><strong>COUNT</strong></td>
+			   <td>Affiche le nombre de valeur d'un champ</td>
+			   <td>SELECT COUNT(*) AS nb FROM users WHERE id < 50;</td>
+			</tr>
+			<tr>
+			   <td><strong>MAX</strong></td>
+			   <td>Affiche la valeur maximum d'un champ</td>
+			   <td>SELECT MAX(salaire) AS maxsalaire FROM users;</td>
+			</tr>
+			<tr>
+			   <td><strong>MIN</strong></td>
+			   <td>Affiche la valeur minimum d'un champ</td>
+			   <td>SELECT MIN(salaire) AS minsalaire FROM users;</td>
+			</tr>
+			<tr>
+			   <td><strong>AVG</strong></td>
+			   <td>Affiche le moyenne des données d'un champ</td>
+			   <td>SELECT AVG(salaire) AS salaire_moyen FROM users;</td>
+			</tr>
+			<tr>
+			   <td><strong>SUM</strong></td>
+			   <td>Affiche la somme des données d'un champ</td>
+			   <td>SELECT SUM(salaire) AS somme_salaire FROM users;</td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<h5 class="text-center">Jointures</h5>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <td>SELECT nom des champs à afficher <br>
+			   FROM table1, table2
+			   WHERE table1.propriétécommune = table2.propriétécommune <br>
+			   AND ...</td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<h5 class="text-center">Affichage</h5>
+		<br>
+		<table class="table table-bordered">
+		<thead class="text-center">
+			<th>Effets</th>
+			<th>Exemples</th>
+		  </thead>
+		  <tbody>
+			<tr>
+			   <td>Afficher toutes les données d'une table</td>
+			   <td>SELECT * FROM nomTable;</td>
+			</tr>
+			<tr>
+			   <td>Afficher les données contenues dans les <br> champs à partir des tables listées</td>
+			   <td>SELECT nom_champs FROM nomTable;</td>
+			</tr>
+			<tr>
+			   <td>Paramètre une condition<br> <strong>WHERE</strong></td>
+			   <td>SELECT nomcli,ruecli,cpcli,vilclient
+				<br>FROM `client`
+				<br><strong>WHERE</strong> vilclient = (SELECT vilclient FROM CLIENT <br><strong>WHERE</strong> nomcli="HYPERMARCHE CASINO");
+				</td>
+			</tr>
+			<tr>
+			   <td>Paramètre une condition<br> <strong>HAVING</strong></td>
+			   <td>Quel est le montant total de la commande N°3338 : <br>
+				SELECT sum(pupdt*quantite) AS total
+				<br>FROM produit,comprendre
+				<br>WHERE comprendre.refpdt = produit.refpdt
+				<br>GROUP BY idcomm
+				<br><strong>HAVING</strong> idcomm=3338;
+				</td>
+			</tr>
+			<tr>
+			   <td>Paramètre des critères de tri <br> <strong>ORDER BY</strong></td>
+			   <td>SELECT nom_colonne FROM nomTable <br> WHERE condition <br> <strong>ORDER BY</strong> nom_colonne ASC ou DESC;</td>
+			</tr>
+			<tr>
+			   <td>Paramètre un regroupement<br>  <strong>GROUP BY</strong></td>
+			   <td>SELECT continent FROM Country <br> WHERE Continent = "Europe" <strong>GROUP BY</strong> continent;</td>
+			</tr>
+			<tr>
+			   <td>Sélectionne dans un champ les données différentes<br>  <strong>DISTINCT</strong></td>
+			   <td>SELECT <strong>DISTINCT</strong> nomColonne FROM nomTable <br> WHERE nomTable;</td>
+			</tr>
+		  </tbody>
+		</table>
+		
+		<br>
+		<h5 class="text-center">Insertion</h5>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <td><strong>INSERT INTO</strong> nomTable (colonne1, colonne2, colonne3...)
+			   <br> <strong>VALUES</strong> (chiffre,"texte1","texte2"...),
+			   <br>(chiffre,"texte1","texte2"...);</td>
+			</tr>
+		  </tbody>
+		</table>
+		
+		<br>
+		<h5 class="text-center">Modification</h5>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <td><strong>UPDATE</strong> nomTable 
+			   <br><strong>SET</strong> nomcolonne_a_modifier = nouvelleValeur 
+			   <br> WHERE critère;</td>
+			</tr>
+		  </tbody>
+		</table>
+		
+		<br>
+		<h5 class="text-center">Suppression</h5>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <td><strong>DELETE FROM</strong> nomTable 
+			   <br> WHERE critère;</td>
+			</tr>
+		  </tbody>
+		</table>
+	</div>
+	
+	
+	<script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+<body>
+
+</body>
+</html>

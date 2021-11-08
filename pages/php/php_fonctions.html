@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image:x-icon" href="../../images/logo.ico" />
+	<title>BrAiN</title>
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+	<object id="object" type="text/html" data="../header.html" ></object>
+	<object id="object2" type="text/html" data="php_header.html" ></object>
+
+	<div id="theprinbody" class="container">
+		<h5 class="text-center">Les Fonctions</h5>
+		<br>
+	<table class="table table-bordered">
+		  <tbody>
+			<tr>
+<td>
+<pre>
+<span>&lt;?php</span>
+	
+	<span>// Une fonction ne doit avoir Q'UN retour ! Eviter le echo dans une fonction !</span>
+	
+	<span>// double rechercheMax ( double val1, double val2).</span>
+	
+	<span>// affiche le plus grand nombre des 2 variables double passées en paramètres</span>
+	
+		<span>function rechercheMax ($val1, $val2)</span>
+		<span>{</span>
+		<span>if ($val1 > $val2)</span>
+			<span>$max = $val1;</span>
+		<span>else</span>
+			<span>$max = $val2;</span>
+		<span>return $max ;</span>
+		<span>}</span>
+
+	<span>// Affichage de la fonction</span>
+	
+		<span>$val1 = 50;</span>
+		<span>$val2 = 100;</span>
+		<span>$maximun = rechercheMax($val1,$val2);</span>
+		<span>echo $maximum;</span>
+	
+	<span>// Passage par référence</span>
+	
+		<span>function ajouteUn (&$val)</span>
+		<span>{</span>
+		  <span>$val = $val + 1 ;</span>
+		<span>}</span>
+												
+		<span>$a = 3 ;</span>
+		<span>print( "Avant ajout, a =" . $a ); // a = 3</span>
+		<span>ajouteUn ($a);</span>
+		<span>print( "Apres ajout, a =" . $a ); // a = 4</span>
+	
+	<span>/* On peut préciser le type de données :</span>
+		<span>array</span>
+		<span>callable</span>
+		<span>bool</span>
+		<span>int</span>
+		<span>float</span>
+		<span>string */</span>
+	
+	<span>// Exemple :</span>
+	
+		<span>$num = 10;</span>
+		<span>$nom = "Chablis";</span>
+		<span>function maFonction(int $num, string $nom){</span>
+		   <span>return $num + 50.$nom;</span>
+		<span>}</span>
+		
+	<span>// Si l'on voudrait récupérer des variables infinies :</span>
+		<span>// Exemple :</span>
+
+		<span>function maFonction(...$toutesLesVariables){</span>
+		   <span>foreach($toutesLesVariables as $num)</span>
+				<span>echo $date;</span>
+		<span>}</span>
+		
+		<span>// Appel:</span>
+		<span>maFonction(1); // ou :</span>
+		<span>maFonction(1,2,3,4,5,6);</span>
+		
+		<span>// Résultat : 1 dans le premier cas, et 123456 dans le deuxième.</span>
+		
+		
+		<span>// Le mot clé global permet de récupérer une variable directement dans la fonction</span>
+	
+		<span>//Exemple :</span>
+		
+		<span>function getContinents(){</span>
+		<span>global $dataDB;</span>
+		<span>$prepare = $dataDB->prepare("SELECT continent FROM Country GROUP BY continent;");</span>
+		<span>$prepare->execute();</span>
+
+		<span>return $prepare->fetchAll();</span>
+		<span>}</span>
+		
+<span>?&gt;</span>
+</pre>	
+</td>  
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+			<table class="table table-bordered">
+	<h5>Fonctions Utile !</h5><p></p>
+		  <tbody>
+			<tr>
+<td>
+<pre>
+<span>&lt;html></span>
+	
+	<span>// Le readline permettre de lire le clavier a partir du terminal</span>
+	
+	<span>function readline($prompt='' ) { </span> 
+	  <span>echo $prompt ;</span>
+	  <span>return rtrim(fgets(STDIN)); </span> 
+	<span>}</span>  
+	
+	<span>// Pour inclure un fichier html ou php dans un autre </span>  
+	<span>// Include est moins stricte que require_once </span>  
+	
+		<span>include "fichier.html"; </span>
+		
+	<span>// Préférable pour les fichier php le fichier sera include 1 fois</span>  
+		
+		<span>require_once "fichier.php"; </span>	
+		
+	<span>// Redirection vers un autre page</span>  
+		
+		<span>header("Location: page.php"); </span>	
+		<span>exit; </span>	
+
+<span>&lt;/html&gt;</span>
+</pre>	
+</td>  
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+	</div>
+
+	<script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+<body>
+
+</body>
+</html>

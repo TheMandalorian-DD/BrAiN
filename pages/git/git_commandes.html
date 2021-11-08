@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image:x-icon" href="../../images/logo.ico" />
+	<title>BrAiN</title>
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+	<object id="object" type="text/html" data="../header.html" ></object>
+	<object id="object2" type="text/html" data="git_header.html" ></object>
+
+	<div id="theprinbody" class="container">
+		<h5 class="text-center">Configuration global</h5>
+		<p class="text-center"><strong>* A faire en NON-administrateur</strong> dans le powershell(windows) ou terminal linux.</p>
+		<p class="text-center">Votre configuration est alors enregistrée dans le fichier <strong>~/.gitconfig</strong>.</p>
+		<p class="text-center"><strong>git config --global --list</strong> pour voir l'état de la configuration</strong>.</p>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<td><strong>Choisir son pseudo :</strong></td>
+				<td>git config --global user.name "Nom" </td>
+			<tr>
+			<tr>
+				<td><strong>Choisir son email :</strong></td>
+				<td>git config --global user.email "Email"</td>
+			<tr>
+			<tr>
+				<td><strong>Pour avoir de jolies couleurs :</strong></td>
+				<td>git config --global color.ui true
+				<br>git config --global color.diff auto
+				<br>git config --global color.status auto
+				<br>git config --global color.branch auto</td>
+			<tr>
+			<tr>
+				<td><strong>Choisir son éditeur :</strong></td>
+				<td>git config --global core.editor nano</td>
+			<tr>
+			<tr>
+				<td><strong>Changer le nom d'une commande :</strong></td>
+				<td>git config --global alias.s status <br>
+				Ca veut dire que si je fais <strong>git s</strong> ca revient a faire git status
+				<br>On peut supprimer l'alias en tapant : <br>
+				git config --global --unset alias.s</td>
+			<tr>
+			<tr>
+				<td><strong>Indiquer un proxy :</strong></td>
+				<td>git config --global http.proxy http://proxy.vinci-melun.org:3128</td>
+		  </tbody>
+		</table>
+		<br>
+		<h5 class="text-center">1) Création du dépôt local</h5>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<td>
+				Dans le dossier principal du projet :
+				<br><strong>git init</strong>
+				</td>  
+				<td>
+				Pour initialiser le versionning.<br>
+				<strong>ls - a</strong> pour afficher le dossier cacher qui a été créer <br>
+				elle ne doit pas être touché, si elle est supprimer le projet ne sera plus un dépôt git.
+				</td> 
+			</tr>
+			<tr>
+				<td>
+				Ou alors :
+				<br><strong>git clone ''urlDuProjet</strong>
+				</td>  
+				<td>
+				Pour récupérer un projet existant
+				</td> 
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<h5 class="text-center">Ignorer des fichiers de mon projet</h5>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<td>-> Créer un fichier <strong>.gitignore</strong> touch .gitignore<br>
+					->Sur chaque ligne de ce fichier on met les fichiers ou dossier qu'on souhaite ignorer.
+				<br><strong>Ex :</strong><br> *.tmp -> Tous les fichiers qui ce terminent pas .tmp<br>
+				fichier3.php -> le fichier3.php sera ignorer.
+				<br> pages/* -> Sera ignorer tous ceux qui est à l'intérieur du dossier pages.
+				</td> 
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<h5 class="text-center">2</h5>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<td><strong>git status</strong></td>  
+				<td>
+				Pour voir l'état du dossier. <strong>(En rouge les fichiers non tracker <br>ils peuvent peuvent donc pas être mis dans le commit).</strong>
+				</td> 
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<h5 class="text-center">3</h5>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<td><strong>git add nomfichier.extenssion</strong></td>  
+				<td>
+				Pour tracker le fichier afin qu'il soit pris en compte lors du prochain commit.
+				<br><strong>git add --all ou git add *</strong> Pour tout ajouter.
+				</td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<h5 class="text-center">4</h5>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<td><strong>git commit</strong></td>  
+				<td>
+				Pour envoyer enregistrer l'état actuelle du projet <br>
+				l'éditeur de texte s'ouvrira pour nous permettre de nommer le commit <br>
+				--- ou --- <br>
+				<strong> git commit -m "Nom du commit"</strong> pour le faire directement
+					<br><strong> git commit -a -m "Nom du commit"</strong> pour ajouter les fichiers et commit directement
+				</td>
+				</tr>
+		  </tbody>
+		</table>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<td><strong>git commit --amend</strong></td>  
+				<td>
+				Si l'on fait une modification et qu'on souhaite l'enregistrer dans le commit précédent.<br>
+				l'éditeur de texte s'ouvrira pour nous permettre de renommer le commit si l'on veut <br>
+				--- ou ---
+				<br> <strong>git commit --amend --no-edit</strong> Pour garder le nom actuelle du commit.
+				</td>
+				</tr>
+		  </tbody>
+		</table>
+			<br>
+		<h5 class="text-center">5</h5>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<td><strong>git log</strong><br></td>  
+				<td>
+				Permet s'afficher les dernier commit qui ont été fait dans mon projet.<br>
+				<strong>git log --oneline</strong> récupère les informations sur une ligne.<br>
+				<strong>git log --graph</strong> voir les commits graphiquement dans le terminal<br>
+				<strong>git log --oneline --graph</strong> peut se faire.<br>
+				<strong>git log -n 2</strong> pour voir les deux dernières commit.<br>
+				<strong>git log -p fichier2.html</strong> pour voir tous les commit qui concerne le fichier2.html.<br>
+				</td> 
+			</tr>
+		  </tbody>
+		</table>
+			<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<td><strong>git diff</strong><br></td>  
+				<td>
+				 Prend tous les fichiers qui ont été modifier depuis le dernier <br>commit et nous montre les modifications.
+				</td> 
+			</tr>
+			<tr>
+				<td><strong>git show clécommit</strong><br></td>  
+				<td>
+				  Pour voir les modifications apporté sur le commit clécommit
+				</td> 
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+	
+		<h5 class="text-center">Annuler un commit</h5>
+		<table class="table table-bordered">
+		  <tbody>
+		  <tr>
+				<td><strong>git rest --hard clécommit</strong></td>  
+				<td>
+				Permet de revenir à l'état de clécommit et d'annuler <br>toutes les modifications
+				ayant été faites après.
+				</td> 
+			</tr>
+			  <tr>
+				<td><strong>git rest --soft clécommit</strong></td>  
+				<td>
+				Permet de revenir à l'état de clécommit en gardant <br>toutes les modifications
+				ayant été faites après.
+				</td> 
+			</tr>
+			</tbody>
+		</table>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<td><strong>git rest cléCommit</strong></td>  
+				<td>
+				Revenir à l'état du commit de notre choix mais en gardant <br> les modifications des commits qui ont été apportés depuis.
+				<br> Les autres comit ayant eu lieu après seront supprimé<br>
+				<strong>git reset HEAD^</strong> Pour revenir un commit en arrière.<br>
+				<strong>git reset HEAD^^^</strong> Pour revenir trois commit en arrière.<br>
+				<strong>git reset HEAD^ --hard</strong> Pour revenir un commit en arrière en supprimer toutes les modifications qui ont été apportés.
+				</td> 
+			</tr>
+			<tr>
+				<td><strong>git rest HEAD nomFichier</strong></td>  
+				<td>
+				Pour un untracker un fichier.
+				</td> 
+			</tr>
+		  	<tr>
+				<td><strong>git checkout cléducommit</strong><br></td>  
+				<td>
+				Voir l'état du commit tel qu'il était avant sans perdre les modifications faites depuis.<br>
+				On ne peut qu'observer sans faire de modification.
+				</td> 
+			</tr>
+			<tr>
+				<td><strong>git checkout cléducommit nomFichier</strong><br></td>  
+				<td>
+				 Mon dépot sera modifier et le fichier reviendra a son état lors du commit cléCommit.
+				 <br><strong>git log --oneline</strong> pour voir la clé.<br>
+				 Pour récupérer le fichier actuel il faudra faire <strong>git checkout master nomFichier</strong>
+				</td> 
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+			<h5 class="text-center">Création de branche</h5>
+		<table class="table table-bordered">
+		  <tbody>
+		  <tr>
+				<td><strong>git branch</strong><br></td>  
+				<td>
+				Pour lister les branches<br>
+				La branche master est la branche principale<br>
+				* Nous permet de savoir dans qu'elle branche on se situe.
+				</td> 
+			</tr>
+			<tr>
+				<td><strong>git branch -v</strong><br></td>  
+				<td>
+				Pour lister les branches mais également afficher les <br>derniers commit réaliser au niveau de chaque branches.
+				</td> 
+			</tr>
+		  	<tr>
+				<td><strong>git branch nomBranche</strong><br></td>  
+				<td>
+				Créer une nouvelle branche afin de travailler sur un domaine précis de notre projet.
+				Les modification sur cette branche ne toucherons pas les autres branches.
+				</td> 
+			</tr>
+			<tr>
+				<td><strong>git checkout -b nomBranche</strong><br></td>  
+				<td>
+				Permet de créer la branche nomBranche et de se rendre immédiatement dessus.
+				</td> 
+			</tr>
+			<tr>
+				<td><strong>git checkout nomBranche</strong><br></td>  
+				<td>
+				Permet de sauter d'une une autre branche.
+				</td> 
+			</tr>
+		  </tbody>
+		</table>
+				<br>
+			<h5 class="text-center">Fusion des branches</h5>
+		<table class="table table-bordered">
+		  <tbody>
+		  	<tr>
+				<td><strong>git merge nomBranche</strong><br></td>  
+				<td>
+				Il faut se placer dans la branche principale. <strong>git checkout master</strong><br>
+				La branche nommer sera fusionner avec la branche principale<br>
+				<strong>git log</strong> Pour voir si tous s'est bien passé.
+				<br> Si il y  a eureur de conflit il faut se rendre dans le fichier et supprimer <br>
+				manuellement les lignes qu'on ne souahaite pas garder.
+				</td> 
+			</tr>
+			<tr>
+			<td><strong>git rebase nomBranche</strong><br></td>
+				<td>
+				Il faut se placer dans la branche qui va fusionner avec la principale.<br>
+				La branche nommer sera fusionner avec la branche principale<br>
+				Ensuite il faut aller dans la branche principale <strong>git merge nomBranche</strong> pour fusionner.
+				</td> 
+			</tr>
+			<tr>
+				<td><strong>git branch -d nomBranche</strong><br></td>  
+				<td>
+				Supprime la branche Une fois qu'elle a été fusionner.
+				</td> 
+			</tr>
+			<tr>
+				<td><strong>git branch -D nomBranche</strong><br></td>  
+				<td>
+				Supprime la branche même si elle a pas été fusionner.
+				</td> 
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<h5 class="text-center">Création du dépôt distant Avec GitHub</h5>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<td>
+				On peut utiliser Github pour des projet opensource, les projets priver sont payant.<br>
+				1) Il faut s'inscrire sur github.com<br>
+				oublie pas de générer une clé ssh -> <a target="_blank" href="https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">generating ssh keys</a> sur google puis la rajouter sur github<br>
+				2) Créer un nouveau repository (dépôt distant) en lui donnant un nom<br>
+				3) créer <br>
+				4) Prendre le lien remote dans la partie projet existant.
+				</td> 
+			</tr>
+			<tr>
+				<td>
+				<strong>Github</strong> pour autoriser des personnes a venir modifier notre projet.<br>
+				1) Il faut aller sur settings -> collaborators<br>
+				2) Ajouter les noms des personnes <br>
+				</td> 
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<td>
+				On peut utiliser Bitbucket pour des projet les projets priver avec moins de 5 collaborateurs.<br>
+				1) Il faut s'inscrire sur bitbucket.org<br>
+				oublie pas de générer une clé ssh -> <a target="_blank" href="https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">generating ssh keys</a> sur google puis la rajouter sur bitbucket<br>
+				2) Créer un nouveau repository (dépôt distant) en lui donnant un nom<br>
+				3) créer <br>
+				4) Prendre le lien remote dans la partie projet existant.
+				</td> 
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<td>
+				<strong>git remote add origin l'url du depôt</strong><br>
+				Par défaut le nom est origin mais on peut changer !
+				</td> 
+				<td>
+				Pour associer notre dépot local au dépot distant 
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<strong>git remote -v</strong>
+				</td> 
+				<td>
+				Pour lister nos dépôt distant
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<strong>git remote remove nomDuDepot</strong>
+				</td> 
+				<td>
+				Pour supprimer le dépot distant enregistrés
+				</td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<td>
+				<strong>git push -u nomDepot master</strong>
+				</td> 
+				<td>
+				Pour envoyer notre projet sur le dépôt<br>
+				<strong>git push nomDepot fichier.html</strong> Pour envoyer que le fichier sur le dépôt.
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<strong>git pull nomDepot master</strong>
+				</td> 
+				<td>
+				Pour récuperer les changements ayant été effectuer sur le dépôt de base
+				</td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<h5 class="text-center">Récupérer des fichiers des les autres avec OpenSS en local</h5>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<td>
+				1) Il faut installer OpenSSH afin de se connecter a une autre machine.<br>
+				2) Pour Récupérer un dépôt déja existant : <br>
+				<strong>git clone ssh://sio@172.16.52.73/"sio/PojetOriginal</strong> nomDuDossierDestination
+				3) Mettre le mot de passe de l'utilisateur 
+				</td> 
+			</tr>
+		  </tbody>
+		</table>
+	</div>	
+	
+	
+	<script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+<body>
+
+</body>
+</html>

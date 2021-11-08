@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image:x-icon" href="images/logo.ico" />
+	<title>BrAiN</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="nav" class="fixed-top">
+		<nav class="navbar">
+		  <a id="pos" class="navbar-brand" href="index.html"><img src="images/logo.jpg" width="65" height="60"></a>
+		</nav>
+	</div>	
+
+	<div id="indextainer" class="container">
+		<nav class="navbar navbar-expand-md">
+		  <input class="col-md-6 offset-md-3" type="text" id="mySearch" onkeyup="myFunction()" placeholder="Rechercher...">
+		</nav>
+		
+		<div style="margin-top: 35px;">
+	
+			<table id="myMenu" style="margin: auto">
+				<tr class="text-center">
+					<td>		
+						<div class="card mb-4 shadow-sm">
+							<a class="nav-link" href="pages/windows/windows_home.html" title="Windows"><img src="images/windows.png" width="50" height="50"></a>
+						</div>
+					</td>
+					<th width=20></th>
+					<td>		
+						<div class="card mb-4 shadow-sm">
+							<a class="nav-link" href="pages/linux/linux_home.html" title="Linux"><img src="images/linux.png" width="50" height="50"></a>
+						</div>
+					</td>
+					<th width=20></th>
+					<td>
+						<div class="card mb-4 shadow-sm">
+							<a class="nav-link" href="pages/git/git_home.html" title="Git"><img src="images/git.jpg" width="50" height="50"></a>
+						</div>
+					</td>
+				</tr>
+				
+				<tr class="text-center">
+					<td>
+						<div class="card mb-4 shadow-sm">
+							<a class="nav-link" href="pages/html/html_home.html" title="Html"><img src="images/html.png" width="50" height="50"></a>
+						</div>
+					</td>
+					<th width=20></th>
+					<td>		
+						<div class="card mb-4 shadow-sm">
+							<a class="nav-link" href="pages/css/css_home.html" title="Css"><img src="images/css.png" width="50" height="50"></a>
+
+						</div>
+					</td>
+					<th width=20></th>
+					<td>
+						<div class="card mb-4 shadow-sm">
+							<a class="nav-link" href="pages/javascript/javascript_home.html" title="Javascript"><img src="images/javascript.png" width="55" height="48"></a>
+						</div>
+					</td>			
+				</tr>
+				
+				<tr class="text-center">
+					<td>
+						<div class="card mb-4 shadow-sm">
+							<a class="nav-link" href="pages/frameworks/frameworks_home.html" title="Frameworks"><img src="images/frameworks.png" width="55" height="48"></a>
+						</div>
+					</td>
+					<th width=20></th>
+					<td>
+						<div class="card mb-4 shadow-sm">
+							<a class="nav-link" href="pages/php/php_home.html" title="Php"><img src="images/php.png" width="55" height="48"></a>
+						</div>
+					</td>
+					<th width=20></th>
+					<td>		
+						<div class="card mb-4 shadow-sm">
+							<a class="nav-link" href="pages/sql/sql_home.html" title="Sql"><img src="images/sql.jpg" width="50" height="50"></a>
+						</div>
+					</td>
+				</tr>
+				<tr class="text-center">
+					<td>
+						<div class="card mb-4 shadow-sm">
+							<a class="nav-link" href="pages/python/python_home.html" title="Python"><img src="images/python.png" width="50" height="50"></a>
+						</div>
+					</td>
+					<th width=20></th>
+					<td>
+						<div class="card mb-4 shadow-sm">
+							<a class="nav-link" href="pages/java/java_home.html" title="Java"><img src="images/java.jpg" width="55" height="48"></a>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<script>
+		function myFunction() {
+			var input, filter, tr, td, a, i;
+			input = document.getElementById("mySearch");
+			filter = input.value.toUpperCase();
+			tr = document.getElementById("myMenu");
+			td = tr.getElementsByTagName("td");
+			for (i = 0; i < td.length; i++) {
+				a = td[i].getElementsByTagName("a")[0];
+				if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+					td[i].style.display = "";
+				} else {
+					td[i].style.display = "none";
+				}
+			}
+		}
+	</script>
+	<script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+<body>
+
+</body>
+</html>

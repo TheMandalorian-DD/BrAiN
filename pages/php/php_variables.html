@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image:x-icon" href="../../images/logo.ico" />
+	<title>BrAiN</title>
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+	<object id="object" type="text/html" data="../header.html" ></object>
+	<object id="object2" type="text/html" data="php_header.html" ></object>
+
+	<div id="theprinbody" class="container">
+		<h5 class="text-center">Les Variables et Constantes</h5>
+		<br>
+		<table class="table table-bordered">
+		<h5>Variables</h5><p></p>
+		  <tbody>
+			<tr>
+				<td>
+<pre>
+<span>&lt;?php</span>
+    
+	<span>// Les types</span>
+	
+	<span>Booléen (boolean, bool) : true (1) || false (0)</span>
+	<span>Entier (integer, int) : 14 || -126, 32000</span>
+	<span>Flottant (float, double) : 3.14 || -252.5</span>
+	<span>Chaîne de caractères (string) : 'Hello' || "World"</span>
+	
+	<span>// Déclarons une variable</span>
+		
+	<span>$firstVariable = "Salut";</span>
+	<span>$secondVariable = 50.5;</span>	
+			
+	<span>// La concaténation se fait avec un point !</span>
+
+	<span>$var = "World";</span>
+	<span>echo "Hello".$var."!";</span>
+		
+<span>?&gt;</span>
+</pre>	  
+</td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+	<table class="table table-bordered">
+	<h5>Constantes</h5><p></p>
+		  <tbody>
+			<tr>
+<td>
+<pre>
+<span>&lt;?php</span>
+    
+	<span>/* Une constante est une variable dont on ne peut</span>
+	     <span>modifier la valeur une fois définit.</span>
+	<span>Elle n'est accessible qu'en lecture ! */</span> 
+	
+	<span>// Par convention une constante est définit en majuscule</span>
+	
+	<span>// Exemple :</span>
+	
+	<span>define("PI", 3.14);</span>
+
+	<span>// Pour l'afficher :</span>
+		
+	<span>echo PI;</span>
+	
+	<span>// Autre exemple :</span>
+	
+	<span>$name = 'Dalil';</span>
+	
+	<span>define("USER_NAME", $name);</span>
+		
+	<span>echo USER_NAME;</span>
+		
+<span>?&gt;</span>
+</pre>	
+</td>  
+			</tr>
+		  </tbody>
+		</table>
+	</div>
+
+	<script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+<body>
+
+</body>
+</html>

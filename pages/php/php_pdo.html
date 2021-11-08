@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image:x-icon" href="../../images/logo.ico" />
+	<title>BrAiN</title>
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+	<object id="object" type="text/html" data="../header.html" ></object>
+	<object id="object2" type="text/html" data="php_header.html" ></object>
+
+	<div id="theprinbody" class="container">
+		<h5 class="text-center">Le PDO</h5>
+		<br>
+	<table class="table table-bordered">
+	<h5>Connexion base de données</h5><p></p>
+		  <tbody>
+			<tr>
+<td>
+<pre>
+<span>&lt;?php</span>
+
+	<span>ini_set('display_errors', 1);</span>
+
+<span>// Constantes infos de connexion</span>
+	<span>define('DB_DATA', 'geoworld_data');</span>
+	<span>define('DB_DSN', 'mysql:host=localhost;dbname=' . DB_DATA . ';charset=utf8');</span>
+	<span>define('DB_USER', 'root');</span>
+	<span>define('DB_PASSWORD', 'mdp');</span>
+	<span>define('DEBUG', false);</span>
+
+	<span>$dbError = '';</span>
+	
+<span>// Fonction de connexion</span>	
+
+	<span>function connect()
+	<span>{
+	<span>global $dbError;
+	<span>$opt = array(
+		
+		<span>// Parramètre pdo pour les retours</span>
+		
+		<span>PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,</span>
+		<span>PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ, //ASSOC,</span>
+		<span>PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",</span>
+		<span>PDO::ATTR_EMULATE_PREPARES => false</span>
+	<span>);</span>
+	<span>try {</span>
+		<span>return new PDO(DB_DSN, DB_USER, DB_PASSWORD, $opt);</span>
+		
+	<span>//Le catch est chargé d’intercepter une éventuelle erreur</span>
+	
+	<span>} catch (PDOException $e) {</span>
+		<span>$dbError = 'Oups ! Connexion SGBD impossible !';</span>
+		<span>if (DEBUG) :</span>
+			<span>$dbError .= "&lt;br/>" . $e->getMessage();</span>
+		<span>endif;</span>
+	<span>}</span>
+	<span>}</span>
+	
+	<span>// initialisation de la variable globale $pdo</span>
+	<span>$dataDB = connect();</span>
+
+	<span>if ($dbError) {</span>
+	<span>die('&lt;div class="ui red inverted segment"> &lt;p>' . $dbError . '&lt;/p>&lt;/div>&lt;/body>&lt;/html>');</span>
+	<span>}</span>
+<span>?&gt;</span>
+</pre>	
+</td>  
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+			<table class="table table-bordered">
+	<h5>Functions requêtes (query, prepare) en pdo</h5><p></p>
+		  <tbody>
+			<tr>
+<td>
+<pre>
+<span>&lt;?php</span>
+	<span>require_once('baseDeDonnees.php');</span>
+
+	<span>// La requête Query s'utilise quand nous ne traitons pas de variables.</span>
+	
+	<span>// Exemple :</span>
+	
+	<span>function getAllCountries(){</span>
+		<span>global $dataDB;</span>
+		<span>return $dataDB->query("SELECT * FROM Country;")->fetchAll();</span>
+	<span>} 
+	
+	<span>// La requête prepare s'utilise quand nous traitons avec des variables afin de les sécurisées</span>  
+		
+	<span>// Exemple :</span>
+	
+	<span>function getCountryInfo($idCountry, $pays){</span>
+		<span>global $dataDB;</span>
+		<span>$prepare = $dataDB->prepare("SELECT * FROM Country WHERE id = :id and pays = :pays;")</span>;
+		<span>$prepare->bindValue(':id', $idCountry, PDO::PARAM_INT);</span>
+		<span>$prepare->bindValue(':pays', $pays, PDO::PARAM_STR);</span>
+		<span>$prepare->execute();</span>
+
+		<span>return $prepare->fetch();</span>
+	<span>}</span>
+	
+
+<span>?></span>
+</pre>	
+</td>  
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+<table class="table table-bordered">
+<h5>Fonctions utiles</h5>
+		  <tbody>
+			<tr>
+				<th style="text-align: center">->fetch()</th>
+				<td>retourne un tableau d'une ligne</td>  
+			</tr>
+			<tr>
+				<th style="text-align: center">->fetchAll()</th>
+				<td>Retourne plusieurs tableau de données sur plusieurs lignes</td>  
+			</tr>
+			<tr>
+				<th style="text-align: center">->rowCount()</th>
+				<td>Retourne le nombre de lignes affectées</td>  
+			</tr>
+		  </tbody>
+		</table>
+	</div>
+
+	<script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+<body>
+
+</body>
+</html>

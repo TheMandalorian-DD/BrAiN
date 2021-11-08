@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image:x-icon" href="../../images/logo.ico" />
+	<title>BrAiN</title>
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+	<object id="object" type="text/html" data="../header.html" ></object>
+	<object id="object2" type="text/html" data="linux_header.html" ></object>
+
+	<div id="theprinbody" class="container">
+		<h5>Commandes linux</h5>
+	    <br>
+		<h5 align=center>Aides</h5><br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <th scope="row">man ls</th>
+			   <td>Appel de l’aide pour la commande ls</td>
+			</tr>
+			<tr>
+			   <th scope="row">-h ou --help</th>
+			   <td>Demande d’aide pour une commande</td>
+			</tr>
+			<tr>
+			   <th scope="row">ls --help</th>
+			   <td>Demande d’aide pour la commande ls</td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <th scope="row">history</th>
+			   <td>Afficher l'historique des 50 dernières commandes utilisées</td>
+			</tr>
+			<tr>
+			   <th scope="row">↑ ↓ flèche du haut</th>
+			   <td>Remonter dans les différentes commandes déjà tapées</td>
+			</tr>
+			<tr>
+			   <th scope="row">⇄ tab</th>
+			   <td>Auto-complétion</td>
+			</tr>
+			<tr>
+			   <th scope="row">clear ou ctrl + l</th>
+			   <td>Nettoie votre fenêtre de terminal en reléguant tout le texte au dessus</td>
+			</tr>
+			<tr>
+			   <th scope="row">ctrl + s</th>
+			   <td>Stoppe l'affichage lorsqu'une commande très verbeuse "pollue" un peu le terminal</td>
+			</tr>
+			<tr>
+			   <th scope="row">ctrl + q</th>
+			   <td>Reprendre l'affichage...</td>
+			</tr>
+			<tr>
+			   <th scope="row">ctrl + d ou exit</th>
+			   <td>Déconnecte proprement une session ou un terminal</td>
+			</tr>
+			<tr>
+			   <th scope="row">ctrl + k</th>
+			   <td>Supprime tout le texte se trouvant après le curseur et le sauvegarde dans le presse papier</td>
+			</tr>
+			<tr>
+			   <th scope="row">ctrl + u</th>
+			   <td>Supprime tout le texte se trouvant avant le curseur et le sauvegarde dans le presse papier</td>
+			</tr>
+			<tr>
+			   <th scope="row">ctrl + y</th>
+			   <td>Permet de coller le texte présent dans le presse papier</td>
+			</tr>
+			<tr>
+			   <th scope="row">ctrl + r</th>
+			   <td>Permet de faire une recherche dans l'historique des commandes
+			   (tapez un bout de la commande que vous voulez rechercher)</td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <th scope="row">sudo systemctl reboot</th>
+			   <td>Permet de redémarrer la machine</td>
+			</tr>
+			<tr>
+			   <th scope="row">sudo systemctl poweroff</th>
+			   <td>Pour éteindre la machine</td>
+			</tr>
+			<tr>
+			   <th scope="row">sudo shutdown +1</th>
+			   <td>Pour éteindre l'ordinateur dans 1 min</td>
+			</tr>
+		  </tbody>
+		</table>
+			<br><h5 align=center>Gestion de la session</h5><br>
+		
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <th scope="row">sudo</th>
+			   <td>Exécuter une commande en tant que root</td>
+			</tr>
+			<tr>
+			   <th scope="row">su -</th>
+			   <td>Passer root</td>
+			</tr>
+			<tr>
+			   <th scope="row">hostname</th>
+			   <td>Affiche le nom de la machine</td>
+			</tr>
+			<tr>
+			   <th scope="row">chmod</th>
+			   <td>Changer les droits sur un fichier ou un dossier</td>
+			</tr>
+			<tr>
+			   <th scope="row">chmod a+r fich.htm</th>
+			   <td>Permission de lecture pour tous du fichier fich.htm</td>
+			</tr>
+			<tr>
+			   <th scope="row">chown</th>
+			   <td>Change le propriétaire d'un fichier/dossier</td>
+			</tr>
+			<tr>
+			   <th scope="row">usermod</th>
+			   <td>Modifie un utilisateur (options : -l pour changer le nom, -g pour lui assigner un groupe, -G pour lui assigner plusieurs groupes (séparés par des virgules), -a en complément de -g ou -G, ajouter des nouveaux groupes au lieu de tout redéfinir)</td>
+			</tr>
+			<tr>
+			   <th scope="row">adduser</th>
+			   <td>Ajouter un utilisateur</td>
+			</tr>
+			<tr>
+			   <th scope="row">passwd</th>
+			   <td>Changer le mot de passe d'un user | ex : passwd roger</td>
+			</tr>
+			<tr>
+			   <th scope="row">deluser</th>
+			   <td>Supprimer un user (option --remove-home pour supprimer tous ses fichiers)</td>
+			</tr>
+		  </tbody>
+		</table>
+		
+		<br><h5 align=center>Manipulation des fichiers</h5><br>
+		
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <th scope="row">ls</th>
+			   <td>Liste des fichiers du répertoire</td>
+			</tr>
+			<tr>
+			   <th scope="row">ls -l</th>
+			   <td>Liste détaillée des fichiers du répertoire</td>
+			</tr>
+			<tr>
+			   <th scope="row">ls i*</th>
+			   <td>Liste des fichiers du répertoire commençant par i</td>
+			</tr>
+			<tr>
+			   <th scope="row">cd</th>
+			   <td>Déplacement dans l’arborescence des fichiers</td>
+			</tr>
+			<tr>
+			   <th scope="row">cd /</th>
+			   <td>Positionnement sur le répertoire à partir de la racine</td>
+			</tr>
+			<tr>
+			   <th scope="row">cd ..</th>
+			   <td>Positionnement sur le répertoire précédent</td>
+			</tr>
+			<tr>
+			   <th scope="row">pwd</th>
+			   <td>Nom du répertoire courant</td>
+			</tr>
+			<tr>
+			   <th scope="row">mkdir prog </th>
+			   <td>Création du répertoire prog</td>
+			</tr>
+			<tr>
+			   <th scope="row">rmdir prog</th>
+			   <td>Effacement du répertoire prog</td>
+			</tr>
+			<tr>
+			   <th scope="row">rm prog1.c </th>
+			   <td>Effacement du fichier prog1.c</td>
+			</tr>
+			<tr>
+			   <th scope="row">rm -r</th>
+			   <td>Permet la suppression definitive des dossiers</td>
+			</tr>
+			<tr>
+			   <th scope="row">touch fich.txt </th>
+			   <td>Crée un fichier vide de ce nom s’il n’existe pas, sinon change la date de dernière modif. du fichier</td>
+			</tr>
+			<tr>
+			   <th scope="row">cp prog1.c prog2.c</th>
+			   <td>Copie du fichier prog1.c dans prog2.c</td>
+			</tr>
+			<tr>
+			   <th scope="row">mv prog1.c prog2.c</th>
+			   <td>Renommage ou déplacement du fichier prog1.c en prog2.c</td>
+			</tr>
+			<tr>
+			   <th scope="row">file prog.c</th>
+			   <td>Type du fichier prog.c</td>
+			</tr>
+			<tr>
+			   <th scope="row">echo "Bonjour" > fich.txt </th>
+			   <td>Ecriture de ”Bonjour” dans le fichier fich.txt</td>
+			</tr>
+			<tr>
+			   <th scope="row">ls > liste.txt</th>
+			   <td>Envoi de la liste des fichiers du répertoire dans liste.txt</td>
+			</tr>
+			<tr>
+			   <th scope="row">ls >> liste.txt </th>
+			   <td>Envoi de la liste des fichiers du répertoire dans liste.txt mais c’est copié au bout de liste.txt</td>
+			</tr>
+			<tr>
+			   <th scope="row">cat prog.c</th>
+			   <td>Liste du contenu du fichier prog.c</td>
+			</tr>
+			<tr>
+			   <th scope="row">cat a.txt >> b.txt</th>
+			   <td>Copie du fichier a.txt au bout du fichier b.txt</td>
+			</tr>
+			<tr>
+			   <th scope="row">grep "main" prog.c</th>
+			   <td>Affiche toutes les lignes du fichier prog.c contenant main</td>
+			</tr>
+			<tr>
+			   <th scope="row">gref the *.txt</th>
+			   <td>Chercher le mot the dans un fichier portant l'extension .txt</td>
+			</tr>
+			<tr>
+			   <th scope="row">gref -i the *.txt</th>
+			   <td>Chercher la lettre d'un mot qui commence par the dans un fichier portant l'extension .txt</td>
+			</tr>
+			<tr>
+			   <th scope="row">vi prog.c</th>
+			   <td>édition du fichier prog.c</td>
+			</tr>
+			<tr>
+			   <th scope="row">nano prog.c</th>
+			   <td>édition du fichier prog.c</td>
+			</tr>
+			<tr>
+			   <th scope="row">find</th>
+			   <td>Chercher des fichiers et des dossiers</td>
+			</tr>
+			<tr>
+			   <th scope="row">gzip fich.txt</th>
+			   <td>Compression du fichier fich.txt en fich.txt.gz</td>
+			</tr>
+			<tr>
+			   <th scope="row">gunzip fich.txt.gz ou gzip -d fich.txt.gz</th>
+			   <td>Décompression du fichier fich.txt.gz en fich.txt</td>
+			</tr>
+		  </tbody>
+		</table>
+		<br><h5 align=center>Gestion réseau</h5><br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <th scope="row">hostname -i</th>
+			   <td>Affiche l'ip de l'ordinateur</td>
+			</tr>
+			<tr>
+			   <th scope="row">ip a</th>
+			   <td>Affiche les parametres de la carte réseau</td>
+			</tr>
+			<tr>
+			   <th scope="row">ping</th>
+			   <td>En local : Elle permet de vérifier si le réseau fonctionne<br>
+					En distant : Elle permet de connaître le temps de réponse d'un serveur distant<br>
+					Ex: ping 192.168.1.1 ou ping www.google.fr</td>
+			</tr>
+			
+		  </tbody>
+		</table>
+		<br><h5 align=center>Gestionnaire de paquets et installations</h5><br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <th scope="row">apt-get update</th>
+			   <td>Mise à jour des paquets</td>
+			</tr>
+			<tr>
+			   <th scope="row">apt-get upgrade php</th>
+			   <td>Mise à jour de php</td>
+			</tr>
+			<tr>
+			   <th scope="row">apt install</th>
+			   <td>Pour installer une application/logiciel sur debian/ubuntu</td>
+			</tr>
+			<tr>
+			   <th scope="row">zypper install</th>
+			   <td>Pour installer une application/logiciel sur opensuse</td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<h5 align=center><a href="file:///A:/SIO/Commandes%20Linux%20windows/101%20commandes%20indispensables%20sous%20linux%20%E2%80%93%20Buzut.html" target="_blank">Plus de commandes</a></h5>
+	</div>
+	
+
+	<script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+<body>
+
+</body>
+</html>

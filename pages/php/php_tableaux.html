@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image:x-icon" href="../../images/logo.ico" />
+	<title>BrAiN</title>
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+	<object id="object" type="text/html" data="../header.html" ></object>
+	<object id="object2" type="text/html" data="php_header.html" ></object>
+
+	<div id="theprinbody" class="container">
+		<h5 class="text-center">Les tableaux</h5><br>
+		
+		<table class="table table-bordered">
+	<h5>Les chaînes de caractères</h5>
+	<p class="text-center">Les chaînes de caractères sont en fait des tableaux de caractère.</p>
+		  <tbody>
+			<tr>
+				<td>
+<pre>
+<span>&lt;?php</span>
+
+	<span>$mot = "informatique";</span>
+	
+	<span>/* Sachant que l'indice du tableau démarre à 0,</span>
+	<span>pour afficher le i de informatique : */</span>
+	
+	   <span>echo $mot[0];</span>
+	   
+	   <span>echo $mot[2}; // Pour afficher f</span>
+	   
+	<span>Pour afficher toutes les lettres il faut une boucle :</span>
+	
+	<span>La fonction strlen() permet de compter le nombre de lettre dans le mot.</span>
+	
+	<span>for($i = 0; $i < strlen($mot) - 1; $i++){</span>
+	   <span>echo $mot[$i];</span>
+	<span>}</span>
+			
+<span>?&gt;</span>
+</pre>			
+				</td>  
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+	<table class="table table-bordered">
+		<h5>tableaux</h5><p></p>
+		  <tbody>
+			<tr>
+<td>
+<pre>
+<span>&lt;?php</span>
+	
+	<span>// Un tableau contenant des pays</span>
+	<span>// 2 syntaxes pour les tableaux :</span>
+	
+	<span>$tabSyntaxe1 = array("France", "Japon", "Canada");</span>
+	<span>$tabSyntaxe2 = ["France", "Japon", "Canada"];</span>
+	
+	<span>// Pour afficher France :</span>
+	
+	<span>echo $tabSyntaxe1[0]; </span>
+
+	<span>/* Pour manipuler les éléments d’un tableau, il faut parcourir</span>
+	<span>le tableau et donc utiliser des instructions de boucle.) */</span>
+	
+	<span>// Exemple : Afficher chaque élément de tabSyntaxe2</span>
+	
+	<span>for($i = 0; $i < count($tabSyntaxe2); $i++){</span>
+	   <span>echo $tabSyntaxe2[$i];</span>
+	<span>}</span>
+	
+	<span>// ------------ou---------------</span>
+
+	<span>foreach($tabSyntaxe1 as $pays){</span>
+	   <span>echo $pays;</span>
+	<span>}</span>
+	
+	<span>// Modifier Japon dans $tabSyntaxe1</span>
+	
+	<span>$tabSyntaxe1[1} = "Benin";</span>
+			
+	<span>// Rajouter la Chine dans $tabSyntaxe1</span>
+
+	<span>$tabSyntaxe1[} = "Chine";</span>
+	
+	<span>// Supprimer France dans $tabSyntaxe1</span>
+	
+	<span>unset($tabSyntaxe1[0});</span>
+	
+	<span>/* Cela va produire un tableau comme celui­ci</span> 
+	<span>$tabSyntaxe1 = array(0 => 'France', 1 =>Null, 2 => 'Canada');</span>
+	<span>echo ($tabSyntaxe1[1]."\n");  // n'affiche rien (FALSE)</span>
+	<span>*/</span>
+	
+<span>?&gt;</span>
+</pre>	
+</td>  
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+			<table class="table table-bordered">
+	<h5>Tableaux associatifs</h5><p></p>
+		  <tbody>
+			<tr>
+<td>
+<pre>
+<span>&lt;?php</span>
+	
+	<span>$tabSyntaxe1 = array( 1 => "France", 2 => "Japon", 3 => "Canada");</span>
+
+	<span>// Afficher le tableau avec la boucle foreach</span>
+	
+	<span>foreach($tabSyntaxe1 as $pays)</span>
+	<span>{</span>   			 <span>// Affiche France</span>
+	   <span>echo $pays."\n";</span>  <span>// Affiche Japon</span>
+	<span>}</span>				 <span>// Affiche Canada</span>
+	
+	<span>foreach($tabSyntaxe1 as $key => $pays)</span>
+	<span>{</span>   			 <span>// Affiche 1 France</span>
+	   <span>echo $key." ".$pays."\n";</span>  <span>// Affiche 2 Japon</span>
+	<span>}</span>				 <span>// Affiche 3 Canada</span>
+	
+	
+	<span>// Tableau Associatif a deux dimensions</span>
+	
+	<span>$musique=array(</span>
+	<span>"classique"=>array("mozart","chopin","bach","verdi"),</span>
+	<span>"rock"=>array("acdc","pink floyd","led zeppelin","beatles","nirvana","u2"),</span>
+	<span>"jazz"=>array("armstrong","miles davis","hampton")</span>
+	<span>);</span>
+	
+	<span>// Pour parcourir ce tableau :</span>
+	
+	<span>// une première boucle pour parcourir l'ensemble des clés</span>
+	<span>foreach ($musique as $cle => $valeurs) {</span>
+	<span>print("mes disques : ".$cle."\n"); // on affiche la clé</span>
+	<span>//une deuxième boucle pour parcourir toutes les valeurs associées à une clé</span>
+	<span>foreach ($musique[$cle] as $nom){</span>
+	<span>print($nom."\n");</span>
+	<span>}</span>
+	<span>}</span>
+	
+	<span>// Ce qui affichera :</span>
+	
+	<span>mes disques : classique</span>
+	<span>mozart</span>
+	<span>chopin</span>
+	<span>bach</span>
+	<span>verdi</span>
+	<span>mes disques : rock</span>
+	<span>acdc</span>
+	<span>pink floyd</span>
+	<span>led zeppelin</span>
+	<span>beatles</span>
+	<span>nirvana</span>
+	<span>u2</span>
+	<span>mes disques : jazz</span>
+	<span>armstrong</span>
+	<span>miles davis</span>
+	<span>hampton</span>
+
+<span>?&gt;</span>
+</pre>	
+</td>  
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<table class="table table-bordered">
+	<h5>Fonctions pratiques pour les tableaux</h5><p></p>
+		  <tbody>
+			<tr>
+				<th style="text-align: center">strlen($chainesDeCaracteres);</th>
+				<td>Calculer la longueur d'une chaînes de caractères.</td>  
+			</tr>
+			<tr>
+				<th style="text-align: center">sizeof($tableau); <br> ou <br> count($tableau);</th>
+				<td>Pour connaître le nombre d’éléments contenus dans un tableau.</td>  
+			</tr>
+			<tr>
+				<th style="text-align: center">print_r(array_key_exists($tab));</th>
+				<td>Obtenir la liste des clés</td>
+			<tr>
+				<th style="text-align: center">print_r($tab); <br> ou <br> var_dump($tab);</th>
+				<td>Pour visualiser le contenu du tableau. Les valeurs seront affichées dans un 
+format permettant de voir les indices et les éléments. <strong>ctrl u</strong> pour afficher de manière plus lisible dans le code source.</td>  
+			</tr>
+			<tr>
+				<th style="text-align: center">unset()</th>
+				<td>Pour supprimer un élément du tableau.</td>  
+			</tr>
+			<tr>
+				<th style="text-align: center">sort()</th>
+				<td>Trie le tableau array. Les éléments seront triés du plus petit au plus grand.</td>  
+			</tr>
+				<tr>
+				<th style="text-align: center">rsort</th>
+				<td>Effectue un tri en ordre décroissant (du plus grand au plus petit).</td>  
+			</tr>
+			<tr>
+				<th style="text-align: center">array_sum</th>
+				<td>Retourne la somme des valeurs du tableau array , sous forme d'un entier ou d'un
+nombre à virgule flottante.</td>  
+			</tr>	
+			<tr>
+				<th style="text-align: center">max</th>
+				<td>retourne la plus grande valeur numérique parmi les valeurs passées en paramètre (tableau d'entiers).</td>  
+			</tr>
+			<tr>
+				<th style="text-align: center">min</th>
+				<td>retourne la plus petite valeur numérique parmi les valeurs passées en paramètre (tableau d'entiers).</td>  
+			</tr>
+		  </tbody>
+		</table>
+	</div>
+
+	<script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+<body>
+
+</body>
+</html>

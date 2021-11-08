@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image:x-icon" href="../../images/logo.ico" />
+	<title>BrAiN</title>
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+	<object id="object" type="text/html" data="../header.html" ></object>
+	<object id="object2" type="text/html" data="sql_header.html" ></object>
+	
+	<div id="theprinbody"class="container">
+	<h5 class="text-center">Création d'une Database</h5>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <td>
+					CREATE DATABASE IF NOT EXISTS nomDB;<br>
+					--- ou --- <br>
+					CREATE SCHEMA nomDB;
+					<br><br>
+					<strong>Ex :</strong> CREATE DATABASE IF NOT EXISTS base1;<br>
+					USE base1; #Use pour utiliser la base de données.
+			   </td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+	<h5 class="text-center">Création d'une Table</h5>	
+	<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <td>
+					CREATE TABLE IF NOT EXISTS nomtable(<br>
+					propriété1 type, <br> propriété2 type <br>
+					);
+					<br><br>
+					<strong>Ex :</strong> CREATE TABLE IF NOT EXISTS nomtable(<br>
+					id INT PRIMARY KEY AUTO_INCREMENT,<br>
+					pseudo VARCHAR(255),<br>
+					password TEXT
+					<br>);
+			   </td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>	
+	<h5 class="text-center">Suppression d'une Database</h5>	
+	<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <td>
+					DROP DATABASE nomDB;<br>
+					--- ou --- <br>
+ 					DROP SCHEMA nomDB;
+			   </td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<h5 class="text-center">Suppression d'une Table</h5>	
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <td>
+					USE nomDB; #Sélectionner la base de données.<br>
+					DROP TABLE nomTable;
+			   </td>
+			</tr>
+		  </tbody>
+		</table>
+		<h5 class="text-center">Suppression de toutes les données d'une Table</h5>	
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <td>
+					USE nomDB; #Sélectionner la base de données.<br>
+					TRUNCATE TABLE nomTable;
+			   </td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<h5 class="text-center">Modifier le nom d'une base de données</h5>	
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <td>
+					USE nomDB; #Sélectionner la base de données.<br>
+					ALTER DATABASE nomDB RENAME nouveaunom;<br>
+					--- ou --- <br>
+					ALTER SCHEMA nomDB RENAME nouveaunom;
+			   </td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<h5 class="text-center">Modifier une Table</h5>	
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+			   <td>
+			   <strong>Ajouter une colonne :</strong><br>
+					USE nomDB; #Sélectionner la base de données.<br>
+					ALTER TABLE nomtable ADD COLUMN nomcolonne Type;<br>
+					Pour décider de l'emplacement de la colonne: "FIRST, BEFORE, AFTER..."<br>
+					<strong>Ex :</strong> ALTER TABLE users ADD COLUMN id INT PRIMARY KEY AUTO_INCREMENT FIRST;<br>
+					--- ou --- <br>
+					ALTER TABLE users<br>
+					ADD COLUMN pseudo VARCHAR(25) BEFORE date,<br>
+					ADD COLUMN password TEXT AFTER pseudo;<br><br>
+					
+					<strong>Changer la position de la colonne :</strong><br>
+					<strong>Ex :</strong> ALTER TABLE users CHANGE COLUMN pseudo pseudo VARCHAR(25) AFTER date;
+					
+					<strong>Ajouter une clé étrangère :</strong><br>
+					<strong>Ex :</strong> ALTER TABLE users ADD FOREIGN KEY (users_id) REFERENCES user(id);<br><br>
+					
+					<strong>Suppression de la colonne clé étrangère :</strong><br>
+					<strong>Ex :</strong> ALTER TABLE users DROP INDEX users_id;<br>
+					ALTER TABLE users DROP FOREIGN KEY;<br><br>
+					
+					<strong>Suppression d'une colonne :</strong><br>
+					ALTER TABLE nomTable DROP COLUMN nomcolonne;<br><br>
+					
+					<strong>Changer le nom d'une colonne :</strong><br>
+					ALTER TABLE nomTable CHANGE nomActuelle nouveauNom type;
+			   </td>
+			</tr>
+		  </tbody>
+		</table>
+	</div>
+	
+	
+	<script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+<body>
+
+</body>
+</html>

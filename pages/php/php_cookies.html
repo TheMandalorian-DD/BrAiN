@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image:x-icon" href="../../images/logo.ico" />
+	<title>BrAiN</title>
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+	<object id="object" type="text/html" data="../header.html" ></object>
+	<object id="object2" type="text/html" data="php_header.html" ></object>
+
+	<div id="theprinbody" class="container">
+		<h5 class="text-center">Les cookies</h5>
+		<br>
+	<table class="table table-bordered">
+	<h5>Créer un cookie</h5>
+		  <tbody>
+			<tr>
+<td>
+<pre>
+<span>&lt;?php</span>
+	
+	<span>/* Donc cookie = fichier texte enregistré au niveau du navigateur </span>
+	<span>Pour permettre de stocker les infos non sensible des utilisateurs langues,</span>
+	<span>préférence utilisateur et de les afficher plus rapidemment. */</span>
+	
+	<span>Donc pourrai vérifier si le cookie existe sinon en créer un</span>
+	<span>si le cookie n'existe pas ou s'il existe mais que ca valeur est vide</span>
+	
+	<span>if(!isset($_COOKie['lang']) || empty($_COOKIE['lang'])){</span>
+
+	<span>// comment crée un cookie</span>
+	<span>// Cette fonction doit être placé avant tt code html et espace blanc avant le php.</span>
+	<span>// Elle prend plusieurs paramètres </span>
+	
+	<span>// 1 = nom du cookie</span>
+	
+	<span>// 2 = valeur du cookie</span>
+	
+	<span>/* 3 = Temps du cookie avant expiration donc fonction time() + seconde</span>
+	<span>1 ans = 3600 * 24 * 365 */</span>
+	
+	<span>/* 4 = Le paramètre du chemin du cookie (on le met a null) a moins de vouloir mettre 
+	<span>le cookie a un endroit précis dans l'arborescence. */</span>
+	
+	<span>// 5 = Nom de domaine (a moins d'avoir un nom de domaine spécifique on met a null).</span>
+	
+	<span>// 6 = sécutité du cookie si le site est en https on le passe a true sinon false</span>
+	
+	<span>/* 7 = Accès au cookie , true pour qu'elle se fasse en http, false pour en javascript</span>
+	<span>se qui peut entrainer des failles de sécutité. */</span>
+	
+	<span>// Exemple de cookie qui récupère la langue choisi de l'utilisateur :</span>
+	
+	<span>setcookie('lang', 'fr', time() + 3600 * 24 * 365, null, null, false, true);</span>
+	
+	<span>/* Si on veut modifier la valeur d'un cookies il suffit suffit de rappeler la fonction</span>
+	<span>setcookie et de changer la valeur */</span>
+		
+	<span>// Au lieu de fr je met en</span>
+	
+	<span>setcookie('lang', 'en', time() + 3600 * 24 * 365, null, null, false, true);</span>
+	
+	
+<span>?&gt;</span>
+</pre>	
+</td>  
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<table class="table table-bordered">
+	<h5>Lire un cookie</h5>
+		  <tbody>
+			<tr>
+<td>
+<pre>
+<span>&lt;?php</span>
+	
+	<span>// $_COOHIE permet de récuperer récupérer les cookies disponible</span>
+
+	<span>/* Attention un cookie peut être modifier par l'utilisateur donc</span>
+	<span>il faudra sécurisé avec la fonction htmlentities. */</span>
+	
+	<span>// htmlspecialchars() : convertit les caractères spéciaux en entitésHTML</span>
+	<span>/* htmlentities() : convertit les caractères spéciaux en entitésHTML et</span>
+	<span>filtre tout les caractères équivalents au codage html ou javascript. */</span>
+	<span>// strip_tags() : supprime toutes les balises</span>
+	
+	<span>// Donc affichage du cookie lang</span>
+	
+	<span>&lt;html></span>
+	   <span>&lt;p>Langue de l'utilisateur : &lt;?php echo htmlentities($_COOKIE['lang']); ?>&lt;/p></span>
+	<span>&lt;/html></span>
+	
+<span>?&gt;</span>
+</pre>	
+</td>  
+			</tr>
+		  </tbody>
+		</table>
+	</div>
+
+	<script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+<body>
+
+</body>
+</html>

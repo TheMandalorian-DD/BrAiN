@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image:x-icon" href="../../images/logo.ico" />
+	<title>BrAiN</title>
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+	<object id="object" type="text/html" data="../header.html" ></object>
+	<object id="object2" type="text/html" data="php_header.html" ></object>
+
+	<div id="theprinbody" class="container">
+		<h5 class="text-center">Téléchargement et installation sur Windows</h5>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<th style="text-align: center">1</th>
+				<td>Téléchargez le dernier fichier zip PHP (version non thread-safe ) depuis <a href="https://windows.php.net/download/">https://windows.php.net/download/</a></td>  
+			</tr>
+			<tr>
+				<th style="text-align: center">2</th>
+				<td>Extrayez le contenu du fichier zip dans C:\php</td>  
+			</tr>
+			<tr>
+				<th style="text-align: center">3</th>
+				<td>Ajoutez C:\PHP7 à la variable d'environnement de chemin d'accès système Windows 10.
+					<br><strong>Clique droit sur Ce PC -> Propriétés -> Paramètres système avancés -> Variables d'environnement... 
+					-> Double clique Path (Variable système) -> Nouveau -> Copie du chemin d'accès du fichier : ex : C\Program Files\php -> Puis OK -> OK -> OK</strong>
+				<br>Vérifiez que l'installation a réussi en tapant <strong>php -v</strong> dans l'invite de commande.
+				</td>  
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<h5 class="text-center">Téléchargement et installation sur Linux</h5>
+		<h6 class="text-center">(Dans le terminal)</h6>
+		<br>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<th style="text-align: center">1</th>
+				<td>Mettre à jour des dépots présent dans le fichier de configuration
+					<br><strong>sudo apt-get update</strong></td>  
+			</tr>
+			<tr>
+				<th style="text-align: center">2</th>
+				<td>Mettre à jour les packets installés sur le système
+					<br><strong>sudo apt-get upgrade</strong></td>  
+			</tr>
+			<tr>
+				<th style="text-align: center">3</th>
+				<td>Installation php
+					<br><strong>sudo apt install php7 ou php...</strong>
+					<br>Vérifiez que l'installation a réussi en tapant php -v</td>  
+				
+			</tr>
+		  </tbody>
+		</table>
+	</div>
+
+	<script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image:x-icon" href="../../images/logo.ico" />
+	<title>BrAiN</title>
+	<link rel="stylesheet" href="../../css/bootstrap.css">
+	<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+	<object id="object" type="text/html" data="../header.html" ></object>
+	<object id="object2" type="text/html" data="php_header.html" ></object>
+
+	<div id="theprinbody" class="container">
+		<h5 class="text-center">Les Conditions</h5>
+		<h5>Les symboles</h5>
+		<p></p>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<th style="text-align: center">$a == $b</th>
+				<td>égalité</td>  
+				<td>rend vrai si $a est égal à $b</td> 
+			</tr>
+			<tr>
+				<th style="text-align: center">$a === $b</th>
+				<td>égalité</td>  
+				<td>rend vrai si $a est égal à $b et si $a est du même type que $b</td> 
+			</tr>
+			<tr>
+				<th style="text-align: center">$a != $b</th>
+				<td>différence</td> 
+				<td>rend vrai si $a est différent de $b</td> 				
+			</tr>
+			<tr>
+				<th style="text-align: center">$a !== $b</th>
+				<td>différence</td> 
+				<td>rend vrai si $a est différent de $b OU pas de même type</td> 				
+			</tr>
+			<tr>
+				<th style="text-align: center">$a <= $b</th>
+				<td>inférieur ou égal</td>  
+				<td>rend vrai si $a est inférieur ou égal à $b</td> 
+			</tr>
+			<tr>
+				<th style="text-align: center">$a < $b</th>
+				<td>inférieur</td>
+				<td>rend vrai si $a est strictement inférieur à $b</td> 				
+			</tr>
+			<tr>
+				<th style="text-align: center">$a >= $b</th>
+				<td>supérieur ou égal</td>
+				<td>rend vrai si $a est supérieur ou égal à $b</td> 		
+			</tr>
+			<tr>
+				<th style="text-align: center">$a > $b</th>
+				<td>supérieur</td> 
+				<td>rend vrai si $a est strictement supérieur à $b</td> 
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+	<table class="table table-bordered">
+		  <tbody>
+			<tr>
+<td>
+<pre>
+<span>&lt;?php</span>
+
+	<span>// Exemple avec un booléen</span>
+  	
+	<span>$autorisation = true;</span>
+	
+	<span>if($autorisation)</span>
+	<span>{</span>
+	   <span>echo "Accès autorisé";</span>
+	<span>}else{</span>
+	   <span>echo "Accès refusé";</span>
+	<span>}</span>
+	
+	<span>// Autre exemple avec le elseif</span>
+	
+	<span>$number = 12</span>
+	
+	<span>if($number >= 18)</span>
+	<span>{</span>
+	   <span>echo "Majeur";</span>
+	<span>}elseif($number == 80){</span>
+	   <span>echo "Vieux";</span>
+	<span>}else{</span>
+	   <span>echo "Mineur";</span>
+	<span>}</span>
+	
+	<span>// Fonctions usuelles : vérifier le type d'une variable</span>
+	<span>/*</span>
+	<span>is_bool</span>
+	<span>is_int</span>
+	<span>is_float</span>
+	<span>is_string</span>
+	<span>*/</span>
+	
+	<span>// Exemple :</span>
+	
+	<span>$maVariable = 50</span>
+	
+	<span>if(is_int($maVariable))</span>
+	<span>{</span>
+	   <span>echo "C'est bien un entier";</span>
+	<span>}else{</span>
+	   <span>echo "Ce n'est pas un entier";</span>
+	<span>}</span>
+		
+<span>?&gt;</span>
+</pre>	
+</td>  
+			</tr>
+		  </tbody>
+		</table>
+			<br>
+	<table class="table table-bordered">
+	<h5>Exemple en html</h5><p></p>
+		  <tbody>
+			<tr>
+<td>
+<pre>
+<span>&lt;html></span>
+  	
+	<span>&lt;?php $autorisation = true; ?></span>
+	
+	<span>if($autorisation):</span>
+	   <span>&lt;p>&lt;?php echo "Accès autorisé"; ?>&lt;/p></span>
+	<span>else:</span>
+	   <span>&lt;p>&lt;?php echo "Accès non autorisé"; ?>&lt;/p></span>
+	<span>endif;</span>
+		
+<span>&lt;/html&gt;</span>
+</pre>	
+</td>  
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<table class="table table-bordered">
+			<h5>Les conditions ternaire</h5><p></p>
+			<tbody>
+			<tr>
+				<td>
+<pre>
+<span>// Normal</span>
+&lt?php
+
+	$age = 24;
+
+	if ($age >= 18)
+	{
+		$majeur = true;
+	}
+	else
+	{
+		$majeur = false;
+	}
+?>
+
+<span>// Ternaire</span>
+
+&lt?php
+	$age = 24;
+	$majeur = ($age >= 18) ? true : false;
+?>
+
+	
+Ex : -----------------------------------------------------------------
+
+echo (!empty($getCapital->Name)) ? $getCapital->Name : "";
+
+</pre>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		<br>
+		
+		<h5>Les Conditions multiples</h5><p></p>
+		<table class="table table-bordered">
+		  <tbody>
+			<tr>
+				<th style="text-align: center">Mots clés</th>
+				<th style="text-align: center">Signification</th>
+				<th style="text-align: center">Symbole</th>
+				<th style="text-align: center">Exemple</th>				
+			</tr>
+			<tr>
+				<td>AND</td> 
+				<td>ET</td> 
+				<td>&&</td>  
+				<td>if($age>18 && $ville==''melun'' && $sexe==''M'')</td> 
+			</tr>
+			<tr>
+				<td>OR</td> 
+				<td>OU</td> 
+				<td>||</td>  
+				<td>if( $dep==77 ||  $dep==91)</td> 
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+	</div>
+
+	<script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+<body>
+
+</body>
+</html>
